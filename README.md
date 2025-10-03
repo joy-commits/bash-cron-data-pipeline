@@ -8,9 +8,9 @@ The pipeline is organized within the `data_pipeline` directory, ensuring separat
 
 ```
 /home/ufuoma.ejite/data_pipeline/
-├── scripts/
-│   ├── preprocess.sh         
-│   └── monitor.sh          
+|
+├── preprocess.sh         
+├── monitor.sh          
 ├── input/
 │   └── sales_data.csv         
 ├── output/
