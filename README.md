@@ -1,6 +1,6 @@
 # bash-cron-data-pipeline
 
-This project implements an end-to-end data processing and monitoring pipeline using Bash scripting and Linux cron jobs. The solution automates daily data cleansing, manages logging, and includes a self-check mechanism to ensure pipeline reliability.
+This project implements an end-to-end data processing and monitoring pipeline using Bash scripting. The solution automates daily data cleaning, manages logging, and includes a self-check mechanism to ensure pipeline reliability.
 
 ## Project Architecture and File Structure
 
@@ -48,8 +48,8 @@ The `monitor.sh` script provides the final health check for the daily execution:
 | Feature | Implementation |
 |---------|----------------|
 | **Error search** | Uses grep to scan `preprocess.log` and `cron.log` for keywords like "ERROR" and "failed". |
-| **Notification** | Writes a summary (PIPELINE HEALTH: OK or *** PIPELINE FAILURE DETECTED ***) to `logs/monitor_summary.log`. |
-| **Scheduling** | Runs 5 minutes after the main job, ensuring the logs are complete before checking. |
+| **Notification** | Writes a summary to `logs/monitor_summary.log`. |
+| **Scheduling** | Runs 5 minutes after the main job. |
 
 ## Permissions and Security
 
@@ -57,7 +57,7 @@ Permissions were adjusted to meet security requirements for sensitive files:
 
 | Target | Requirement | Command Used | Resulting Permission |
 |--------|-------------|--------------|-------------------------------|
-| `~/data_pipeline/input` | Writable only by the owner (ufuoma.ejite). | `chmod 700 ~/data_pipeline/input` | `drwx------` |
+| `~/data_pipeline/input` | Writable only by the owner (ufuoma.ejite). | `chmod 744 ~/data_pipeline/input` | `drwxr--r--` |
 | `~/data_pipeline/logs` | Access restricted so only authorized users can read them. | `chmod 740 ~/data_pipeline/logs` | `drwxr-----` |
 
 This structure ensures data integrity by restricting write access to input and enhancing log confidentiality.
