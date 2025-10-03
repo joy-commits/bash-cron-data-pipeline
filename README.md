@@ -30,7 +30,7 @@ The `preprocess.sh` script is the core transformation engine, executed daily.
 | **Filtering** | Excludes all rows where the status column equals 'Failed'. |
 | **Cleaning** | Removes the extra_col (the last column) from the dataset. |
 | **Output** | Saves the resulting clean data to `output/cleaned_sales_data.csv`. |
-| **Logging** | Records STARTING, FINISHED, and SUCCESS status with timestamps to `logs/preprocess.log`. |
+| **Logging** | Records the status of the script with timestamps to `logs/preprocess.log`. |
 
 ## Pipeline Automation (Cron)
 
@@ -40,8 +40,6 @@ The pipeline is fully automated via cron jobs running under the user `ufuoma.eji
 |-----|----------|---------------------|---------|
 | **Preprocessing** | Daily at 12:00 AM (Midnight) | `0 0 * * * /data_pipeline/preprocess.sh >> /data_pipeline/logs/cron.log 2>&1` | Executes the main data cleaning task. |
 | **Monitoring** | Daily at 12:05 AM | `5 0 * * * /data_pipeline/monitor.sh >> /data_pipeline/logs/monitoring_cron.log 2>&1` | Runs the health check immediately after the preprocessing completes. |
-
-The use of `2>&1` ensures that both standard output and any shell errors are captured in `cron.log`.
 
 ## Logging and Error Monitoring (monitor.sh)
 
