@@ -6,20 +6,20 @@ This project implements an end-to-end data processing and monitoring pipeline us
 
 The pipeline is organized within the `data_pipeline` directory, ensuring separation between raw data, scripts, processed output, and logs.
 
-<!-- TREEVIEW START -->
+```
 /home/ufuoma.ejite/data_pipeline/
 ├── scripts/
-│   ├── preprocess.sh          # Main data cleansing script
-│   └── monitor.sh             # Error checking and notification script
+│   ├── preprocess.sh         
+│   └── monitor.sh          
 ├── input/
-│   └── sales_data.csv         # Raw data ingestion point
+│   └── sales_data.csv         
 ├── output/
-│   └── cleaned_sales_data.csv # Final processed data
+│   └── cleaned_sales_data.csv 
 └── logs/
-    ├── preprocess.log         # Log from the main script
-    ├── cron.log               # Captures STDOUT/STDERR from cron execution
-    └── monitor_summary.log    # Daily summary of pipeline health (OK/ERROR)
-<!-- TREEVIEW END -->
+    ├── preprocess.log         
+    ├── cron.log              
+    └── monitor_summary.log 
+```
 
 ## Data Processing and Core Logic (preprocess.sh)
 
